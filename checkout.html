@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - DigitalStore</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>DigitalStore</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Produk</a></li>
+                <li><a href="#">Tentang</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <section class="checkout">
+        <div class="container">
+            <h2 class="section-title">Checkout</h2>
+            
+            <!-- Ringkasan Pesanan -->
+            <div class="checkout-grid">
+                <div class="order-summary">
+                    <h3>Ringkasan Pesanan</h3>
+                    <div class="order-details" id="order-details">
+                        <!-- Detail pesanan dari localStorage -->
+                    </div>
+                </div>
+
+                <!-- Form Pembeli -->
+                <div class="buyer-form">
+                    <h3>Data Pembeli</h3>
+                    <form id="checkout-form">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label for="whatsapp">Nomor WhatsApp</label>
+                            <input type="tel" id="whatsapp" required placeholder="Contoh: 08123456789">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Metode Pembayaran -->
+            <div class="payment-methods">
+                <h3>Metode Pembayaran</h3>
+                
+                <div class="payment-grid">
+                    <!-- DANA -->
+                    <div class="payment-card">
+                        <h4><i class="fas fa-wallet"></i> DANA</h4>
+                        <p class="payment-number">08xxxxxxxxxx</p>
+                        <button class="btn-copy" onclick="copyToClipboard('08xxxxxxxxxx')">
+                            <i class="far fa-copy"></i> Salin Nomor
+                        </button>
+                    </div>
+
+                    <!-- SeaBank -->
+                    <div class="payment-card">
+                        <h4><i class="fas fa-university"></i> SeaBank</h4>
+                        <p class="payment-number">xxxxxxxxx</p>
+                        <p class="payment-name">a.n. xxxxx</p>
+                        <button class="btn-copy" onclick="copyToClipboard('xxxxxxxxx')">
+                            <i class="far fa-copy"></i> Salin Rekening
+                        </button>
+                    </div>
+
+                    <!-- QRIS -->
+                    <div class="payment-card qris-card">
+                        <h4><i class="fas fa-qrcode"></i> QRIS</h4>
+                        <p class="qris-note">Scan QRIS di bawah ini untuk melakukan pembayaran</p>
+                        <img src="qris.png" alt="QRIS" class="qris-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tombol Aksi -->
+            <div class="checkout-actions">
+                <button class="btn-primary" onclick="processPayment()">
+                    <i class="fab fa-whatsapp"></i> Lanjutkan Pembayaran
+                </button>
+                <button class="btn-success" onclick="confirmPayment()">
+                    <i class="fas fa-check-circle"></i> Saya Sudah Bayar
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DigitalStore</h3>
+                    <p>Toko digital terpercaya untuk kebutuhan akun dan tools Anda.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Produk</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontak</h4>
+                    <p><i class="fab fa-whatsapp"></i> 0812-3456-7890</p>
+                    <p><i class="far fa-envelope"></i> support@digitalstore.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DigitalStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
